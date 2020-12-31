@@ -10,7 +10,29 @@ class ProductsOverviewScreen extends StatelessWidget {
       productTitle: 'Husky Dog',
       productDescription: 'eight month white husky dog',
       price: 4000,
-    )
+      productImage: Image.asset('assets/images/card_4.png'),
+    ),
+    Product(
+      productId: 'p1',
+      productTitle: 'Husky Dog',
+      productDescription: 'eight month white husky dog',
+      price: 4000,
+      productImage: Image.asset('assets/images/card_1.png'),
+    ),
+    Product(
+      productId: 'p1',
+      productTitle: 'Husky Dog',
+      productDescription: 'eight month white husky dog',
+      price: 4000,
+      productImage: Image.asset('assets/images/card_2.png'),
+    ),
+    Product(
+      productId: 'p1',
+      productTitle: 'Husky Dog',
+      productDescription: 'eight month white husky dog',
+      price: 4000,
+      productImage: Image.asset('assets/images/card_3.png'),
+    ),
   ];
 
   @override
