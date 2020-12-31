@@ -87,7 +87,7 @@ class _RootPageState extends State<RootPage> {
   int selectedIndex = 0;
   List<Widget> pages = [
     Homepage(),
-    SearchPage(),
+    ProductsOverviewScreen(),
     Center(
       child: Text(
         "Articles",

@@ -3,25 +3,25 @@ import 'package:flutter/material.dart';
 import '../viewobject/product.dart';
 
 class SearchItemItem extends StatelessWidget {
-  final String itemOneImg;
-  final String itemOneTitle;
-  final Color itemOneBgColor;
-  final Color itemOneTextColor;
-  final String itemTwoImg;
-  final String itemTwoTitle;
-  final Color itemTwoBgColor;
-  final Color itemTwoTextColor;
-  SearchItemItem({
-    Key key,
-    this.itemOneImg,
-    this.itemOneTitle,
-    this.itemOneBgColor,
-    this.itemOneTextColor,
-    this.itemTwoImg,
-    this.itemTwoTitle,
-    this.itemTwoBgColor,
-    this.itemTwoTextColor,
-  }) : super(key: key);
+  // final String itemOneImg;
+  // final String itemOneTitle;
+  // final Color itemOneBgColor;
+  // final Color itemOneTextColor;
+  // final String itemTwoImg;
+  // final String itemTwoTitle;
+  // final Color itemTwoBgColor;
+  // final Color itemTwoTextColor;
+  // SearchItemItem({
+  //   Key key,
+  //   this.itemOneImg,
+  //   this.itemOneTitle,
+  //   this.itemOneBgColor,
+  //   this.itemOneTextColor,
+  //   this.itemTwoImg,
+  //   this.itemTwoTitle,
+  //   this.itemTwoBgColor,
+  //   this.itemTwoTextColor,
+  // }) : super(key: key);
 
   final List<Product> loadedProduct = [
     Product(
@@ -124,16 +124,21 @@ class SearchItemItem extends StatelessWidget {
     //     ],
     //   ),
     // );
-    return GridView.builder(
-      padding: const EdgeInsets.only(bottom: 40),
-      itemCount: loadedProduct.length,
-      itemBuilder: (ctx, i) => Container(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 3 / 2,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-      ),
-    );
+    // return GridView.builder(
+    //   padding: const EdgeInsets.only(bottom: 40),
+    //   itemCount: loadedProduct.length,
+    //   itemBuilder: (ctx, i) => Product(
+    //     loadedProduct[i].productId,
+    //     loadedProduct[i].productTitle,
+    //     loadedProduct[i].productImage,
+    //     loadedProduct[i].price,
+    //   ),
+    //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    //     crossAxisCount: 2,
+    //     childAspectRatio: 3 / 2,
+    //     crossAxisSpacing: 10,
+    //     mainAxisSpacing: 10,
+    //   ),
+    // );
   }
 }
