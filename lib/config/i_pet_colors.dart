@@ -49,17 +49,13 @@ import '../utils/utils.dart';
 // const Color ps_ctheme__sold_out = Color(0x80D2232A);
 // const Color ps_ctheme__global_primary = Color(0xFFD2232A);
 
-// Copyright (c) 2019, the PS Project authors.  Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// PS license that can be found in the LICENSE file.
-
 // import 'dart:ui';
 
 // import 'package:flutter/material.dart';
 // import 'package:flutterbuyandsell/utils/utils.dart';
 
-class PsColors {
-  PsColors._();
+class IPetColors {
+  IPetColors._();
 
   ///
   /// Main Color
