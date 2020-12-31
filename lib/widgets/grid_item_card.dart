@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ProductGridItem extends StatelessWidget {
   final id;
   final title;
-  final String image;
+  final Image image;
 
   ProductGridItem({
     this.id,
@@ -14,10 +14,7 @@ class ProductGridItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridTile(
       // child: Image.asset(image),
-      child: Text(
-        'image',
-        style: TextStyle(color: Colors.black),
-      ),
+      child: image,
     );
   }
 }
