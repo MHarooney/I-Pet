@@ -4,8 +4,8 @@ import 'package:progress_dialog/progress_dialog.dart';
 import '../config/i_pet_colors.dart';
 import '../utils/utils.dart';
 
-class PsProgressDialog {
-  PsProgressDialog._();
+class IPetProgressDialog {
+  IPetProgressDialog._();
 
   static ProgressDialog _progressDialog;
   // static ProgressDialog _progressDownloadDialog;
