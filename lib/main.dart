@@ -46,13 +46,13 @@ class _RootPageState extends State<RootPage> {
         )),
     BottomNavigationBarItem(
         icon: Icon(
-          LineIcons.search,
+          LineIcons.list_ul,
           size: 27,
         ),
         title: Padding(
           padding: const EdgeInsets.only(top: 8),
           child: Text(
-            "Search",
+            "List",
             style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
           ),
         )),
