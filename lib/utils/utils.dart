@@ -3,6 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 mixin Utils {
+  static String getString(BuildContext context, String key) {
+    if (key != '') {
+      return (key) ?? '';
+    } else {
+      return '';
+    }
+  }
+
   static bool isLightMode(BuildContext context) {
     return Theme.of(context).brightness == Brightness.light;
   }
