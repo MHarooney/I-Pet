@@ -1,11 +1,12 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 class Product {
   final String productId;
   final String productCategory;
   final String productTitle;
   final String productDescription;
-  final String productImage;
+  final Image productImage;
   final double price;
   bool isFavorite;
 
