@@ -1,12 +1,12 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
+
+import './constants/theme.dart';
 import './screens/home_screen.dart';
 import './screens/search_screen.dart';
-import './constants/theme.dart';
-
-import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,9 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Pet App UI',
       theme: ThemeData(
-          textTheme: GoogleFonts.latoTextTheme(
-              Theme.of(context).textTheme
-          ),
+          textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme),
           scaffoldBackgroundColor: appBackground),
       home: RootPage(),
     );
@@ -33,37 +31,81 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  List <BottomNavigationBarItem>items = [
-    BottomNavigationBarItem(icon: Icon(LineIcons.home,size: 27,),title: Padding(
-      padding: const EdgeInsets.only(top: 8),
-      child: Text("Home",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
-    )
-    ),
-    BottomNavigationBarItem(icon: Icon(LineIcons.search,size: 27,),title:Padding(
-      padding: const EdgeInsets.only(top: 8),
-      child: Text("Search",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
-    )
-    ),
-    BottomNavigationBarItem(icon: Icon(LineIcons.book,size: 27),title:Padding(
-      padding: const EdgeInsets.only(top: 8),
-      child: Text("Articles",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
-    )),
-    BottomNavigationBarItem(icon: Icon(LineIcons.bell,size: 27),title: Padding(
-      padding: const EdgeInsets.only(top: 8),
-      child: Text("Notification",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
-    )),
-    BottomNavigationBarItem(icon: Icon(LineIcons.user,size: 27),title: Padding(
-      padding: const EdgeInsets.only(top: 8),
-      child: Text("Profile",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
-    ))
+  List<BottomNavigationBarItem> items = [
+    BottomNavigationBarItem(
+        icon: Icon(
+          LineIcons.paw,
+          size: 27,
+        ),
+        title: Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Text(
+            "Home",
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+          ),
+        )),
+    BottomNavigationBarItem(
+        icon: Icon(
+          LineIcons.search,
+          size: 27,
+        ),
+        title: Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Text(
+            "Search",
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+          ),
+        )),
+    BottomNavigationBarItem(
+        icon: Icon(LineIcons.book, size: 27),
+        title: Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Text(
+            "Articles",
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+          ),
+        )),
+    BottomNavigationBarItem(
+        icon: Icon(LineIcons.bell, size: 27),
+        title: Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Text(
+            "Notification",
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+          ),
+        )),
+    BottomNavigationBarItem(
+        icon: Icon(LineIcons.user, size: 27),
+        title: Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Text(
+            "Profile",
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+          ),
+        ))
   ];
   int selectedIndex = 0;
-  List <Widget> pages = [
+  List<Widget> pages = [
     Homepage(),
     SearchPage(),
-    Center(child: Text("Articles",style: TextStyle(fontSize: 40),),),
-    Center(child: Text("Notifications",style: TextStyle(fontSize: 40),),),
-    Center(child: Text("Profile",style: TextStyle(fontSize: 40),),)
+    Center(
+      child: Text(
+        "Articles",
+        style: TextStyle(fontSize: 40),
+      ),
+    ),
+    Center(
+      child: Text(
+        "Notifications",
+        style: TextStyle(fontSize: 40),
+      ),
+    ),
+    Center(
+      child: Text(
+        "Profile",
+        style: TextStyle(fontSize: 40),
+      ),
+    )
   ];
   @override
   Widget build(BuildContext context) {
@@ -72,9 +114,8 @@ class _RootPageState extends State<RootPage> {
       bottomNavigationBar: SizedBox(
         height: 100,
         child: BottomNavigationBar(
-
           items: items,
-          onTap: (index){
+          onTap: (index) {
             setState(() {
               selectedIndex = index;
             });
@@ -91,7 +132,3 @@ class _RootPageState extends State<RootPage> {
     return pages.elementAt(selectedIndex);
   }
 }
-
-
-
-
