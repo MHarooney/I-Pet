@@ -1,5 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:ipetfe/config/i_pet_config.dart';
+
+import '../constants/theme.dart';
 
 class IPetConst {
   IPetConst._();
@@ -193,4 +196,15 @@ class IPetConst {
   static const String PAYPAL_ENABLE = '1';
   static const String STRIPE_ENABLE = '1';
   static const String RAZOR_ENABLE = '1';
+
+  static const String montserrat = "Montserrat";
+
+  static const appTitle =
+      TextStyle(fontSize: 35, fontWeight: FontWeight.bold, height: 1.5);
+  static const appSubTitle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold, height: 1.5);
+  static const contentWhite =
+      TextStyle(fontSize: 15, height: 1.5, color: AppTheme.white);
+  static const contentBlack =
+      TextStyle(fontSize: 15, height: 1.5, color: AppTheme.nearlyBlack);
 }
