@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../constants/theme.dart';
+import 'package:ipetfe/constants/i_pet_constants.dart';
 
 class Label extends StatelessWidget {
   const Label({
@@ -10,7 +9,7 @@ class Label extends StatelessWidget {
     this.size = 14,
     this.fontWeight = FontWeight.w500,
     this.textAlign = TextAlign.left,
-    this.fontFamily = montserrat,
+    this.fontFamily = IPetConst.montserrat,
     this.maxLines,
     this.overflow,
     this.height,
