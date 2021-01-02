@@ -16,6 +16,7 @@ const card6 = Color(0xFF15464E);
 const card7 = Color(0xFFB6DDDF);
 const card8 = Color(0xFF00B7B7);
 const card9 = Color(0xFF0FB7B7);
+const Color background = Color(0xFFF2F3F8);
 
 const String montserrat = "Montserrat";
 
@@ -25,3 +26,15 @@ const appSubTitle =
     TextStyle(fontSize: 30, fontWeight: FontWeight.bold, height: 1.5);
 const contentWhite = TextStyle(fontSize: 15, height: 1.5, color: textWhite);
 const contentBlack = TextStyle(fontSize: 15, height: 1.5, color: textBlack);
+
+class HexColor extends Color {
+  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
+
+  static int _getColorFromHex(String hexColor) {
+    hexColor = hexColor.toUpperCase().replaceAll('#', '');
+    if (hexColor.length == 6) {
+      hexColor = 'FF' + hexColor;
+    }
+    return int.parse(hexColor, radix: 16);
+  }
+}
