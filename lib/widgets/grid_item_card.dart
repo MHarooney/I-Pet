@@ -15,6 +15,13 @@ class ProductGridItem extends StatelessWidget {
     return GridTile(
       // child: Image.asset(image),
       child: image,
+      footer: GridTileBar(
+        backgroundColor: Colors.grey,
+        title: Text(
+          title,
+          textAlign: TextAlign.center,
+        ),
+      ),
     );
   }
 }
