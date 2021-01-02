@@ -1,134 +1,153 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:line_icons/line_icons.dart';
+import 'package:flutter/services.dart';
+import 'package:ipetfe/screens/product_list_screen.dart';
+import 'package:ipetfe/widgets/bottom_navigation_view/bottom_bar_view.dart';
 
 import './constants/theme.dart';
 import './screens/home_screen.dart';
-import './screens/search_screen.dart';
+import './viewobject/tabIcon_data.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown
+  ]).then((_) => runApp(MyApp()));
+}
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
+  AnimationController animationController;
+
+  List<TabIconData> tabIconsList = TabIconData.tabIconsList;
+
+  Widget tabBody = Container(
+    color: AppTheme.background,
+  );
+
+  @override
+  void initState() {
+    tabIconsList.forEach((TabIconData tab) {
+      tab.isSelected = false;
+    });
+    tabIconsList[0].isSelected = true;
+
+    animationController = AnimationController(
+        duration: const Duration(milliseconds: 600), vsync: this);
+    tabBody = Homepage();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'I-Pet',
       debugShowCheckedModeBanner: false,
-      title: 'Pet App UI',
       theme: ThemeData(
-          textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme),
-          scaffoldBackgroundColor: appBackground),
-      home: RootPage(),
+        primarySwatch: Colors.blue,
+        textTheme: AppTheme.textTheme,
+        platform: TargetPlatform.iOS,
+      ),
+      home: Container(
+        color: AppTheme.background,
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: FutureBuilder<bool>(
+            future: getData(),
+            builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+              if (!snapshot.hasData) {
+                return const SizedBox();
+              } else {
+                return Stack(
+                  children: <Widget>[
+                    tabBody,
+                    bottomBar(),
+                  ],
+                );
+              }
+            },
+          ),
+        ),
+      ),
     );
   }
-}
 
-class RootPage extends StatefulWidget {
-  @override
-  _RootPageState createState() => _RootPageState();
-}
+  Future<bool> getData() async {
+    await Future<dynamic>.delayed(const Duration(milliseconds: 200));
+    return true;
+  }
 
-class _RootPageState extends State<RootPage> {
-  List<BottomNavigationBarItem> items = [
-    BottomNavigationBarItem(
-        icon: Icon(
-          LineIcons.paw,
-          size: 27,
+  Widget bottomBar() {
+    return Column(
+      children: <Widget>[
+        const Expanded(
+          child: SizedBox(),
         ),
-        title: Padding(
-          padding: const EdgeInsets.only(top: 8),
-          child: Text(
-            "Home",
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
-          ),
-        )),
-    BottomNavigationBarItem(
-        icon: Icon(
-          LineIcons.list_ul,
-          size: 27,
-        ),
-        title: Padding(
-          padding: const EdgeInsets.only(top: 8),
-          child: Text(
-            "List",
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
-          ),
-        )),
-    BottomNavigationBarItem(
-        icon: Icon(LineIcons.book, size: 27),
-        title: Padding(
-          padding: const EdgeInsets.only(top: 8),
-          child: Text(
-            "Articles",
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
-          ),
-        )),
-    BottomNavigationBarItem(
-        icon: Icon(LineIcons.bell, size: 27),
-        title: Padding(
-          padding: const EdgeInsets.only(top: 8),
-          child: Text(
-            "Notification",
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
-          ),
-        )),
-    BottomNavigationBarItem(
-        icon: Icon(LineIcons.user, size: 27),
-        title: Padding(
-          padding: const EdgeInsets.only(top: 8),
-          child: Text(
-            "Profile",
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
-          ),
-        ))
-  ];
-  int selectedIndex = 0;
-  List<Widget> pages = [
-    Homepage(),
-    ProductsOverviewScreen(),
-    Center(
-      child: Text(
-        "Articles",
-        style: TextStyle(fontSize: 40),
-      ),
-    ),
-    Center(
-      child: Text(
-        "Notifications",
-        style: TextStyle(fontSize: 40),
-      ),
-    ),
-    Center(
-      child: Text(
-        "Profile",
-        style: TextStyle(fontSize: 40),
-      ),
-    )
-  ];
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: getBody(),
-      bottomNavigationBar: SizedBox(
-        height: 100,
-        child: BottomNavigationBar(
-          items: items,
-          onTap: (index) {
-            setState(() {
-              selectedIndex = index;
-            });
+        BottomBarView(
+          tabIconsList: tabIconsList,
+          addClick: () {},
+          changeIndex: (int index) {
+            if (index == 0) {
+              animationController.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody = Homepage();
+                });
+              });
+            } else if (index == 1) {
+              animationController.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody =
+                      TrainingScreen(animationController: animationController);
+                });
+              });
+            }
+            if (index == 2) {
+              animationController.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  // tabBody =
+                  //     MyDiaryScreen(animationController: animationController);
+                  tabBody = Container(
+                    color: AppTheme.grey,
+                  );
+                });
+              });
+            }
+            if (index == 3) {
+              animationController.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  // tabBody =
+                  //     MyDiaryScreen(animationController: animationController);
+                  tabBody = Container(
+                    color: AppTheme.grey,
+                  );
+                });
+              });
+            }
           },
-          selectedItemColor: primary,
-          currentIndex: selectedIndex,
-          type: BottomNavigationBarType.fixed,
         ),
-      ),
+      ],
     );
-  }
-
-  Widget getBody() {
-    return pages.elementAt(selectedIndex);
   }
 }
