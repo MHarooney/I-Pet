@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ipetfe/constants/i_pet_constants.dart';
+
 import '../constants/theme.dart';
 
 class ItemCard extends StatelessWidget {
@@ -19,16 +21,18 @@ class ItemCard extends StatelessWidget {
               height: 70,
               width: double.infinity,
               decoration: BoxDecoration(
-
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
-                    BoxShadow(color: primary, blurRadius: 0.5)
+                    BoxShadow(color: AppTheme.nearlyBlue, blurRadius: 0.5)
                   ]),
               child: Align(
                 alignment: Alignment.centerRight,
-                child:  Padding(
+                child: Padding(
                   padding: const EdgeInsets.only(right: 30),
-                  child: Text("Lola is lost in your neighborhood!Help us find her!",style:contentWhite,),
+                  child: Text(
+                    "Lola is lost in your neighborhood!Help us find her!",
+                    style: IPetConst.contentWhite,
+                  ),
                 ),
               ),
             ),
@@ -37,7 +41,6 @@ class ItemCard extends StatelessWidget {
             padding: EdgeInsets.only(left: 10),
             child: Image.asset("assets/images/lolo_dog.png"),
           )
-
         ],
       ),
     );
