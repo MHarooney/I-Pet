@@ -17,23 +17,11 @@ const card7 = Color(0xFFB6DDDF);
 const card8 = Color(0xFF00B7B7);
 const card9 = Color(0xFF0FB7B7);
 
-const appTitle = TextStyle(
-    fontSize: 35,
-    fontWeight: FontWeight.bold,
-    height: 1.5
-);
-const appSubTitle = TextStyle(
-    fontSize: 30,
-    fontWeight: FontWeight.bold,
-    height: 1.5
-);
-const contentWhite = TextStyle(
-    fontSize: 15,
-    height: 1.5,
-    color: textWhite
-);
-const contentBlack = TextStyle(
-    fontSize: 15,
-    height: 1.5,
-    color: textBlack
-);
+const String montserrat = "Montserrat";
+
+const appTitle =
+    TextStyle(fontSize: 35, fontWeight: FontWeight.bold, height: 1.5);
+const appSubTitle =
+    TextStyle(fontSize: 30, fontWeight: FontWeight.bold, height: 1.5);
+const contentWhite = TextStyle(fontSize: 15, height: 1.5, color: textWhite);
+const contentBlack = TextStyle(fontSize: 15, height: 1.5, color: textBlack);

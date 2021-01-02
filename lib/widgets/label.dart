@@ -1,5 +1,6 @@
-import 'package:mybmi/constants.dart';
 import 'package:flutter/material.dart';
+
+import '../constants/theme.dart';
 
 class Label extends StatelessWidget {
   const Label({
