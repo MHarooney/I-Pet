@@ -111,7 +111,7 @@ class WalkGroupCard extends StatelessWidget {
                     ),
                     SizedBox(
                       height: 10,
-                    )
+                    ),
                   ],
                 ),
               ),
