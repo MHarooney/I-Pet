@@ -8,9 +8,6 @@ class IPetConst {
   IPetConst._();
 
   static const String THEME__IS_DARK_THEME = 'THEME__IS_DARK_THEME';
-  static const String THEME__IS_DARK_THEME1 = 'THEME__IS_DARK_THEME';
-  static const String THEME__IS_DARK_THEME2 = 'THEME__IS_DARK_THEME';
-  static const String THEME__IS_DARK_THEME3 = 'THEME__IS_DARK_THEME';
 
   static const String LANGUAGE__LANGUAGE_CODE_KEY =
       'LANGUAGE__LANGUAGE_CODE_KEY';
