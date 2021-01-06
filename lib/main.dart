@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ipetfe/screens/product_list_screen.dart';
+import 'package:ipetfe/screens/share_location_screen.dart';
 import 'package:ipetfe/widgets/bottom_navigation_view/bottom_bar_view.dart';
 
 import './constants/theme.dart';
@@ -30,19 +31,6 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
   );
 
   @override
-  void initState() {
-    tabIconsList.forEach((TabIconData tab) {
-      tab.isSelected = false;
-    });
-    tabIconsList[0].isSelected = true;
-
-    animationController = AnimationController(
-        duration: const Duration(milliseconds: 600), vsync: this);
-    tabBody = Homepage();
-    super.initState();
-  }
-
-  @override
   void dispose() {
     animationController.dispose();
     super.dispose();
@@ -51,6 +39,11 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => InputPage(),
+      //   '/result-page': (context) => ResultPage(),
+      // },
       title: 'I-Pet',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -58,27 +51,34 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,
       ),
-      home: Container(
-        color: AppTheme.background,
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: FutureBuilder<bool>(
-            future: getData(),
-            builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-              if (!snapshot.hasData) {
-                return const SizedBox();
-              } else {
-                return Stack(
-                  children: <Widget>[
-                    tabBody,
-                    bottomBar(),
-                  ],
-                );
-              }
-            },
-          ),
-        ),
-      ),
+      // home: TasksScreen(),
+      // home: Container(
+      //   color: AppTheme.background,
+      //   child: Scaffold(
+      //     backgroundColor: Colors.transparent,
+      //     body: FutureBuilder<bool>(
+      //       future: getData(),
+      //       builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+      //         if (!snapshot.hasData) {
+      //           return const SizedBox();
+      //         } else {
+      //           return Stack(
+      //             children: <Widget>[
+      //               tabBody,
+      //               bottomBar(),
+      //             ],
+      //           );
+      //         }
+      //       },
+      //     ),
+      //   ),
+      // ),
+
+      initialRoute: '/',
+      routes: {
+        '/': (context) => ShareLocationScreen(),
+        '/result-page': (context) => Homepage(),
+      },
     );
   }
 
@@ -125,9 +125,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
                 setState(() {
                   // tabBody =
                   //     MyDiaryScreen(animationController: animationController);
-                  tabBody = Container(
-                    color: AppTheme.grey,
-                  );
+                  tabBody = ShareLocationScreen();
                 });
               });
             }

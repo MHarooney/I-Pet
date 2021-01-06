@@ -199,6 +199,8 @@ class IPetConst {
 
   static const String montserrat = "Montserrat";
 
+  static const double kCustomButtonHeight = 60.0;
+
   static const appTitle =
       TextStyle(fontSize: 35, fontWeight: FontWeight.bold, height: 1.5);
   static const appSubTitle =
@@ -207,4 +209,14 @@ class IPetConst {
       TextStyle(fontSize: 15, height: 1.5, color: AppTheme.white);
   static const contentBlack =
       TextStyle(fontSize: 15, height: 1.5, color: AppTheme.nearlyBlack);
+
+  static const labelTextStyle = TextStyle(
+    color: Color(0xFFFFFFFF),
+    fontWeight: FontWeight.bold,
+  );
+
+  static const labelTextStyleTransparent = TextStyle(
+    color: AppTheme.nearlyBlue,
+    fontWeight: FontWeight.bold,
+  );
 }
